@@ -4,7 +4,7 @@ pragma solidity >=0.8.0 <=0.8.15;
 
 contract SponsorFunding {
     // uint sponsorBallance = 3000;
-    uint percentSponsored; //  = 30;
+    uint percentSponsored;
     address private contractOwner;
 
     // events
@@ -33,13 +33,11 @@ contract SponsorFunding {
 
     // donate
     function donate(uint _amount) payable public {
-        // msg.value * percentSponsored / 100 <= sponsorBallance
-        require(_amount * percentSponsored / 100 <= address(this).balance, "The amount exceeds our funds");
+        uint extraSponsorshipAmount = _amount * percentSponsored / 100;
+        require(extraSponsorshipAmount <= address(this).balance, "The amount exceeds our funds");
         
-        payable(msg.sender).transfer(_amount * percentSponsored / 100);
+        payable(msg.sender).transfer(extraSponsorshipAmount);
     }
-
-
 
     receive () payable external {
         emit receivedFunds(msg.sender, msg.value);

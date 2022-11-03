@@ -50,9 +50,10 @@ contract CrowdFunding {
 
         if(amountRaised >= fundingGoal) {
             fundingGoalReached = true;
+            getSponsorFunding();
 
-            // can automatically call the sponsor method here or manually call it later
-            // will make a function to manually call it for now
+            uint difAmount = amountRaised - fundingGoal;
+            payable(msg.sender).transfer(difAmount);
         }
     }
 
