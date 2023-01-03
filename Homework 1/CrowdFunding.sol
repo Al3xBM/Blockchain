@@ -50,10 +50,11 @@ contract CrowdFunding {
 
         if(amountRaised >= fundingGoal) {
             fundingGoalReached = true;
-            getSponsorFunding();
 
             uint difAmount = amountRaised - fundingGoal;
             payable(msg.sender).transfer(difAmount);
+
+	    getSponsorFunding();
         }
     }
 

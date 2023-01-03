@@ -137,3 +137,6 @@ _NCrunch*
 
 # Visual Studio
 .vscode/
+
+node_modules/
+

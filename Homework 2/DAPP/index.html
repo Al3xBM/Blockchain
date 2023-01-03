@@ -1,0 +1,66 @@
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/web3@1.5.3/dist/web3.min.js"></script>
+
+</head>
+<body>
+    <div class="col-lg-12">
+        <div class="page-header">
+            <h3>Car Auction Dapp</h3>
+        </div>
+        <div class="col-lg-6">
+            <div class="well">                 
+                <div>
+                    <legend class="lead">Car Details</legend>
+                    <label class="lead">Brand: </label><span id='car_brand'></span><br>
+                    <label class="lead">Registration Number: </label><span id='registration_number'></span>
+                </div> 
+                <legend class="lead">Bid value</legend>
+                <small>eg. 100</small>
+                <div class="form-group">
+                    <input class="form-control" type="text" id="value" value="10" ></input>
+                    <span id="valueValidation"></span>
+                </div>
+           
+                <div>
+                    <button class="btn btn-default" id="bid_button" type="button">Bid!</button><br>
+                    <span id="biding_status"></span>					
+                </div>
+            </div> 
+        </div>		
+        <div class="col-lg-6">
+            <div class="well">
+                <div>
+                    <legend class="lead">Auction Details</legend>
+                </div>
+                <div>
+                    <ul id='transfers'>
+					<li><label class="lead">Auction End: </label> <span id="auction_end"></span></li>
+					<li><label class="lead">Auction Highest Bid: </label> <span id="HighestBid"></span></li>
+					<li><label class="lead">My Bid: </label> <span id="MyBid"></span></li>
+					<li><label class="lead">Auction Highest Bider: </label> <span id="HighestBidder"></span></li>
+					<li><label class="lead">Auction Status: </label> <span id="STATE"></span></li>					
+					</ul>
+                </div>							 					
+                <br>				  
+                <div>
+				    <legend class="lead">Events Logs </legend>
+                    <span id="eventslog"></span>
+                </div>            
+            </div>        
+        </div>    
+    </div>
+<div class="col-lg-6" id="auction_owner_operations">
+    <div class="well"> <div>
+        <legend class="lead">Auction Operations</legend>
+        <button class="btn btn-default" id="cancel_button" type="button">Cancel auction!</button>
+        <button class="btn btn-default" id="destruct_button" type="button">Destruct auction!</button>
+    </div>
+</div>
+</div>
+<script src="auction.js"></script>
+</body>
+</html>
